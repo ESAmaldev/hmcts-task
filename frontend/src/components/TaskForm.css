@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600&display=swap');
+
+.tf-root {
+  font-family: 'Syne', sans-serif;
+  max-width: 640px;
+  margin: 0.1rem auto;
+  padding: 0 1rem;
+}
+
+.tf-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 0.5px solid #e4e4e0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: #1a1a18;
+  }
+}
+
+@media (max-width: 560px) {
+  .tf-card {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-sidebar {
+    border-right: none;
+    border-bottom: 0.5px solid #e4e4e0;
+  }
+}
+
+/* ── Sidebar ── */
+.tf-sidebar {
+  padding: 2rem 1.5rem 2rem 2rem;
+  border-right: 0.5px solid #e4e4e0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #fafaf8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-sidebar {
+    background: #141412;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.tf-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999994;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.tf-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+  line-height: 1.1;
+  color: #1a1a18;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-heading {
+    color: #f0ede8;
+  }
+}
+
+.tf-heading em {
+  font-style: italic;
+  color: #888880;
+}
+
+/* ── Status pills ── */
+.tf-status-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999994;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tf-status-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tf-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 100px;
+  border: 0.5px solid #e0ded8;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Syne', sans-serif;
+  color: #888880;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  width: fit-content;
+}
+
+.tf-pill:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #1a1a18;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-pill {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #666660;
+  }
+
+  .tf-pill:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f0ede8;
+  }
+}
+
+.tf-pill.active-pending {
+  background: #FAC775;
+  border-color: #EF9F27;
+  color: #412402;
+}
+
+.tf-pill.active-completed {
+  background: #C0DD97;
+  border-color: #639922;
+  color: #173404;
+}
+
+.tf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+/* ── Due date section ── */
+.tf-due-section {
+  margin-top: auto;
+}
+
+.tf-date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tf-date-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tf-date-trigger {
+  width: 100%;
+  background: #f0eee8;
+  border: 0.5px solid #e0ded8;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: 'DM Mono', monospace;
+  color: #1a1a18;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.tf-date-trigger:hover {
+  border-color: #c0beb8;
+  background: #e8e6e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-date-trigger {
+    background: #222220;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0ede8;
+  }
+
+  .tf-date-trigger:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: #2a2a28;
+  }
+}
+
+/* ── Main panel ── */
+.tf-main {
+  padding: 2rem 2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-main {
+    background: #1a1a18;
+  }
+}
+
+.tf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tf-field-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999994;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tf-required-badge {
+  color: #D85A30;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+}
+
+.tf-input {
+  width: 100%;
+  background: #f7f6f2;
+  border: 0.5px solid #e4e2dc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: 'Syne', sans-serif;
+  color: #1a1a18;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tf-input:focus {
+  border-color: #aaa9a4;
+  background: #ffffff;
+}
+
+.tf-input::placeholder {
+  color: #b8b6b0;
+  font-size: 13px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-input {
+    background: #222220;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f0ede8;
+  }
+
+  .tf-input:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: #2a2a28;
+  }
+
+  .tf-input::placeholder {
+    color: #555550;
+  }
+}
+
+textarea.tf-input {
+  resize: none;
+  line-height: 1.6;
+}
+
+.tf-char-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #bbb;
+  text-align: right;
+}
+
+.tf-divider {
+  height: 0.5px;
+  background: #e8e6e0;
+  margin: 0.25rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tf-divider {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ── Actions ── */
+.tf-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 11px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1a18;
+  color: #f8f6f0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover {
+  opacity: 0.82;
+}
+
+.btn-primary:active {
+  opacity: 0.65;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    background: #f0ede8;
+    color: #1a1a18;
+  }
+}
+
+.btn-ghost {
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 0.5px solid #e0ded8;
+  background: transparent;
+  color: #888880;
+  font-size: 13px;
+  font-family: 'Syne', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  background: #f0eee8;
+  color: #1a1a18;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-ghost {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #666660;
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f0ede8;
+  }
+}
+
+/* ── Spinner ── */
+@keyframes tf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tf-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(248, 246, 240, 0.3);
+  border-top-color: #f8f6f0;
+  border-radius: 50%;
+  animation: tf-spin 0.7s linear infinite;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ── DatePicker overrides ── */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker-popper {
+  z-index: 100;
+}
+
+.react-datepicker {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 12px !important;
+  border: 0.5px solid #e0ded8 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  overflow: hidden;
+}
+
+.react-datepicker__header {
+  background: #fafaf8 !important;
+  border-bottom: 0.5px solid #e8e6e0 !important;
+}
+
+.react-datepicker__current-month {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #1a1a18 !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__time-list-item--selected {
+  background-color: #1a1a18 !important;
+  border-radius: 6px !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f0eee8 !important;
+  border-radius: 6px !important;
+}

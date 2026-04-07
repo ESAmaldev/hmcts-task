@@ -161,3 +161,90 @@ code {
   background: #1a1040;
   color: var(--text-primary);
 }
+
+/* ── React DatePicker Dark/Glass Theme ──────── */
+.DatePicker-wrapper-themed .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.glass-calendar {
+  background: rgba(30, 27, 75, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  color: var(--text-primary);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.glass-calendar .react-datepicker__header {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 0;
+}
+
+.glass-calendar .react-datepicker__current-month,
+.glass-calendar .react-datepicker-time__header {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.glass-calendar .react-datepicker__day-name {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.glass-calendar .react-datepicker__day {
+  color: var(--text-primary);
+  transition: all 0.2s;
+  border-radius: 50%;
+  width: 2rem;
+  line-height: 2rem;
+  margin: 0.166rem;
+}
+
+.glass-calendar .react-datepicker__day:hover {
+  background: var(--accent-glow);
+  transform: scale(1.1);
+}
+
+.glass-calendar .react-datepicker__day--selected,
+.glass-calendar .react-datepicker__day--keyboard-selected {
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.glass-calendar .react-datepicker__time-container {
+  border-left: 1px solid var(--glass-border);
+}
+
+.glass-calendar .react-datepicker__time-container .react-datepicker__time {
+  background: transparent;
+}
+
+.glass-calendar .react-datepicker__time-list-item {
+  color: var(--text-primary) !important;
+  transition: background 0.2s;
+}
+
+.glass-calendar .react-datepicker__time-list-item:hover {
+  background: var(--accent-glow) !important;
+}
+
+.glass-calendar .react-datepicker__time-list-item--selected {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+.glass-calendar .react-datepicker__navigation-icon::before {
+  border-color: var(--text-primary);
+  border-width: 2px 2px 0 0;
+}
+
+.glass-calendar .react-datepicker__triangle {
+  display: none;
+}
