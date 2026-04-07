@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Design Tokens ──────────────────────────── */
+:root {
+  --bg-from: #0f0c29;
+  --bg-via: #1a1040;
+  --bg-to: #0d1b4b;
+  --accent: #6c63ff;
+  --accent-light: #a78bfa;
+  --accent-glow: rgba(108, 99, 255, 0.35);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --radius: 14px;
+  --radius-lg: 20px;
+}
+
+/* ── Reset & Base ───────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--bg-from) 0%, var(--bg-via) 50%, var(--bg-to) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated gradient mesh in the background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(108, 99, 255, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 60% 10%, rgba(167, 139, 250, 0.10) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* ── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* ── Glass Card ─────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+/* ── Floating animation ─────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ── Pulse glow ─────────────────────────────── */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+
+  50% {
+    box-shadow: 0 0 24px 6px var(--accent-glow);
+  }
+}
+
+/* ── Shimmer loading ────────────────────────── */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--glass-bg) 25%, rgba(255, 255, 255, 0.08) 50%, var(--glass-bg) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+/* ── Focus ring ─────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Input base ─────────────────────────────── */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.20);
+}
+
+.input-field option {
+  background: #1a1040;
+  color: var(--text-primary);
+}
